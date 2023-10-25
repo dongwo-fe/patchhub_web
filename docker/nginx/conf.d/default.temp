@@ -1,0 +1,63 @@
+server {
+      listen 8082;
+      root   /home/dist;
+      client_max_body_size 20m;
+
+      location /api {
+        proxy_pass {{ip}};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        add_header X-Cache $upstream_cache_status;
+    	add_header Cache-Control no-cache;
+      }
+
+      location = /actuator/health {
+        return 200 "ok";
+      }
+
+      location /api_config {
+        proxy_pass {{ip}};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        add_header X-Cache $upstream_cache_status;
+    	add_header Cache-Control no-cache;
+      }
+
+      location /s {
+        proxy_pass {{ip}};
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header REMOTE-HOST $remote_addr;
+        add_header X-Cache $upstream_cache_status;
+    	add_header Cache-Control no-cache;
+      }
+
+      location /static {
+        charset utf-8;
+        root   /home/dist;
+        index  index.html index.html;
+      }
+      
+      #支付宝小程序校验文件
+      location  /74d143a5548331526c127983cbca2c03.html {
+        add_header Content-Type 'text/plain; charset=utf-8';
+        return 200 '74d143a5548331526c127983cbca2c03';
+      }
+      #测试支付宝小程序校验文件
+      location  /8d27b2ad820047db8833d23c7c870cea.html {
+        add_header Content-Type 'text/plain; charset=utf-8';
+        return 200 '8d27b2ad820047db8833d23c7c870cea';
+      }
+
+      location / {
+        charset utf-8;
+        root   /home/dist;
+        index  index.html index.html;
+        try_files $uri /index.html;
+      }
+}

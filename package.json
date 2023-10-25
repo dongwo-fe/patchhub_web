@@ -1,0 +1,63 @@
+{
+    "name": "easyhome_web_patchhub",
+    "version": "1.0.0",
+    "description": "洞窝APP热修复系统",
+    "scripts": {
+        "dev": "vue-cli-service serve --mode dev",
+        "build": "vue-cli-service build --mode dev",
+        "release": "vue-cli-service build --mode production",
+        "preview": "node build/index.js --preview",
+        "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
+        "nginx": "node ./scripts/nginx.js",
+        "lint": "eslint --ext .js,.vue src"
+    },
+    "dependencies": {
+        "axios": "0.18.1",
+        "clipboard": "^2.0.11",
+        "core-js": "3.21.1",
+        "element-ui": "2.13.2",
+        "js-cookie": "2.2.0",
+        "js-md5": "0.7.3",
+        "moment": "2.29.2",
+        "normalize.css": "7.0.0",
+        "nprogress": "0.2.0",
+        "path-to-regexp": "2.4.0",
+        "v-viewer": "1.6.4",
+        "vue": "2.6.10",
+        "vue-json-editor": "1.4.3",
+        "vue-router": "3.0.6",
+        "vuex": "3.1.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "4.4.4",
+        "@vue/cli-plugin-eslint": "4.4.4",
+        "@vue/cli-service": "4.4.4",
+        "autoprefixer": "9.5.1",
+        "babel-eslint": "10.1.0",
+        "babel-jest": "23.6.0",
+        "babel-plugin-dynamic-import-node": "2.3.3",
+        "chalk": "2.4.2",
+        "connect": "3.6.6",
+        "eslint": "6.7.2",
+        "eslint-plugin-vue": "6.2.2",
+        "html-webpack-plugin": "3.2.0",
+        "runjs": "4.3.2",
+        "sass": "1.26.8",
+        "sass-loader": "8.0.2",
+        "script-ext-html-webpack-plugin": "2.1.3",
+        "serve-static": "1.13.2",
+        "svg-sprite-loader": "4.1.3",
+        "svgo": "1.2.2",
+        "vue-template-compiler": "2.6.10",
+        "webpack": "4.46.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "engines": {
+        "node": ">=12.0",
+        "npm": ">= 6.0.0"
+    },
+    "license": "MIT"
+}
